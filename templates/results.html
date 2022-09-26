@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+     
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+
+  <div class="table-users">
+   <div class="header">BookMyshow Scrapper</div>
+
+   <table cellspacing="0">
+      <tr>
+         <th>Theater Name</th>
+         <th>Show Time</th>
+         <th>total_gross</th>
+         <th>collected_gross </th>
+      </tr>
+         {% for each_theater,colls in query_results.items() %}
+            {% for each_show in query_results[each_theater]%}
+            <tr>
+               <td>{{each_theater}}</td>
+               <td>{{ each_show }} </td>
+               <td>{{ query_results[each_theater][each_show]['total_gross'] }} </td>
+               <td>{{ query_results[each_theater][each_show]['collected_gross'] }}</td>
+            </tr>
+            {% endfor %}
+         {% endfor %}
+   </table>
+</div>
+
+
+
+</body>
+
+</html>
