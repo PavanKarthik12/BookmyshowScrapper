@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>BookMyshow Scrapper</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Search</h1>
+
+    <div class="form">
+        <form action="/data" method="POST">
+            <label for="username">
+                <i class="fas fa-user"></i>
+            <input type="text" name="movie_name" placeholder="Movie Name" id="movie_name" required>
+            <label for="username">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="city" placeholder="City Name" id="city" required>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</div>
+{% endblock %}
